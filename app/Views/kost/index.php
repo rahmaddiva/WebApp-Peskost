@@ -30,12 +30,33 @@
                                         <td><?= $k['nama_kost'] ?></td>
                                         <td><?= $k['alamat_kost'] ?></td>
                                         <td><?= $k['harga'] ?></td>
-                                        <td><?= $k['status'] ?></td>
                                         <td>
-                                            <a href="<?= base_url('kost/edit/' . $k['id_kost']) ?>"
-                                                class="btn btn-warning btn-sm">Edit</a>
-                                            <a href="<?= base_url('kost/hapus/' . $k['id_kost']) ?>"
-                                                class="btn btn-danger btn-sm">Hapus</a>
+                                            <?php if ($k['status'] == 'tersedia'): ?>
+                                                <span class="badge bg-success"><?= $k['status'] ?></span>
+                                            <?php else: ?>
+                                                <span class="badge bg-danger"><?= $k['status'] ?></span>
+                                            <?php endif; ?>
+
+                                        </td>
+                                        <td>
+                                            <div class="btn-group">
+                                                <button type="button"
+                                                    class="btn btn-primary btn-icon rounded-pill dropdown-toggle hide-arrow"
+                                                    data-bs-toggle="dropdown" aria-expanded="false">
+                                                    <i class="icon-base bx bx-dots-vertical-rounded"></i>
+                                                </button>
+                                                <ul class="dropdown-menu dropdown-menu-end">
+                                                    <li><a class="dropdown-item"
+                                                            href="<?= base_url('kost/detail_kost/' . $k['id_kost']) ?>">Detail</a>
+                                                    </li>
+                                                    <li><a class="dropdown-item"
+                                                            href="<?= base_url('kost/edit/' . $k['id_kost']) ?>">Edit</a>
+                                                    </li>
+                                                    <li><a class="dropdown-item"
+                                                            href="<?= base_url('kost/hapus/' . $k['id_kost']) ?>">Hapus</a>
+                                                    </li>
+                                                </ul>
+                                            </div>
                                         </td>
                                     </tr>
                                 <?php endforeach; ?>
@@ -47,5 +68,8 @@
         </div>
     </div>
 </div>
+</div>
+
+</script>
 
 <?php $this->endSection() ?>

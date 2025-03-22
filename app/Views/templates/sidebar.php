@@ -39,14 +39,14 @@
         <li class="menu-header small text-uppercase"><span class="menu-header-text">Penjualan</span></li>
         <!-- Dashboard -->
         <li class="menu-item">
-            <a href="/presensi" class="menu-link">
+            <a href="/pemesanan" class="menu-link">
                 <i class="menu-icon tf-icons bx bx-store"></i>
                 <div data-i18n="Analytics">Data Pemesanan</div>
             </a>
         </li>
 
         <li class="menu-item">
-            <a href="/lokasi" class="menu-link">
+            <a href="/transaksi" class="menu-link">
                 <i class="menu-icon tf-icons bx bx-cart"></i>
                 <div data-i18n="Analytics">Data Transaksi</div>
             </a>

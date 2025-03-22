@@ -7,7 +7,7 @@
     <meta name="viewport"
         content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0" />
 
-    <title>PESKOST | <?= $title ?></title>  
+    <title>PESKOST | <?= $title ?></title>
 
     <meta name="description" content="" />
     <!-- Favicon -->
@@ -157,6 +157,22 @@
                 }
             });
         }
+
+        function hapus() {
+            Swal.fire({
+                title: 'Apakah anda yakin?',
+                text: "Data yang dihapus tidak dapat dikembalikan!",
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Ya, Hapus!'
+            }).then((result) => {
+                if (result.isConfirmed) {
+
+                }
+            });
+        }
     </script>
 
     <!-- Main JS -->
@@ -169,6 +185,15 @@
 
     <!-- Place this tag in your head or just before your close body tag. -->
     <script async defer src="https://buttons.github.io/buttons.js"></script>
+    <script src="<?= base_url(); ?>assets/vendor/js/helpers.js"></script>
+    <!--! Template customizer & Theme config files MUST be included after core stylesheets and helpers.js in the <head> section -->
+
+    <!--? Template customizer: To hide customizer set displayCustomizer value false in config.js.  -->
+    <script src="<?= base_url(); ?>assets/vendor/js/template-customizer.js"></script>
+
+    <!--? Config:  Mandatory theme config file contain global vars & default theme options, Set your preferred theme option in this file.  -->
+
+    <script src="<?= base_url(); ?>assets/js/config.js"></script>
 </body>
 
 </html>

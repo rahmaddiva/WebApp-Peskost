@@ -2,17 +2,41 @@
 
 namespace App\Controllers;
 use App\Models\UsersModel;
+use App\Models\KostModel;
 
 class Home extends BaseController
 {
+
+    protected $kostModel;
 
     protected $usersModel;
 
     public function __construct()
     {
         $this->usersModel = new UsersModel();
+        $this->kostModel = new KostModel();
     }
 
+    public function landingpage()
+    {
+        $data = [
+            'title' => 'Landing Page',
+            'kost' => $this->kostModel->paginate(6), // Menampilkan 6 data per halaman
+            'pager' => $this->kostModel->pager,
+        ];
+        return view('landingpage/index', $data);
+    }
+
+    public function detail($id_kost)
+    {
+        $kost = $this->kostModel->find($id_kost);
+        $data = [
+            'title' => 'Detail Kost',
+            'kost' => $kost
+        ];
+
+        return view('landingpage/detail', $data);
+    }
 
     public function dashboard()
     {
